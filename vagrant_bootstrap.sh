@@ -5,7 +5,7 @@ echo 'Installing git, Python 3, and pip...'
 # libfreetype6-dev ziblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev python-tk
 sudo add-apt-repository ppa:jonathonf/python-3.6
 sudo apt-get install python3.6
-sudo apt-get -qq install git python3 python-dev libjpeg-dev libtiff5-dev zlib1g-dev > /dev/null 2>&1
+sudo apt-get -qq install git python3 python-dev python3.6-dev libjpeg-dev libtiff5-dev zlib1g-dev > /dev/null 2>&1
 curl -s https://bootstrap.pypa.io/get-pip.py | python3.6 > /dev/null 2>&1
 
 # Install virtualenv / virtualenvwrapper
