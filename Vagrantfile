@@ -22,7 +22,7 @@ Vagrant.configure("2") do |django_config|
 
   # Forward a port from the guest to the host, which allows for outside
   # computers to access the VM, whereas host only networking does not.
-  django_config.vm.network "forwarded_port", guest: 80, host: 8081, host_ip: "127.0.0.1"
+  django_config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
   django_config.vm.network "forwarded_port", guest: 8983, host: 8983, host_ip: "127.0.0.1"
   django_config.vm.network "forwarded_port", guest: 8000, host: 8000, host_ip: "127.0.0.1"
   django_config.vm.network "forwarded_port", guest: 9200, host: 9200, host_ip: "127.0.0.1"
