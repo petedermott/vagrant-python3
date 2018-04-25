@@ -31,9 +31,9 @@ pip3 install --quiet virtualenvwrapper Pygments
 pip3 install --upgrade wheel
 mkdir ~/virtualenvs
 printf "\n\n# Virtualenv settings\n" >> ~pete/.bashrc
-printf "export PYTHONPATH=/usr/lib/python3.6\n" >> ~/.bashrc
+printf "export PYTHONPATH=/usr/bin/python3.6\n" >> ~/.bashrc
 printf "export WORKON_HOME=~/virtualenvs\n" >> ~/.bashrc
-printf "export PROJECT_HOME=/vagrant\n" >> ~/.bashrc
+printf "export PROJECT_HOME=~/projects\n" >> ~/.bashrc
 printf "export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.6\n" >> ~/.bashrc
 printf "source /usr/local/bin/virtualenvwrapper.sh\n" >> ~/.bashrc
 mkdir ~/projects
@@ -43,7 +43,6 @@ sudo snap install pycharm-professional --classic
 # Some useful aliases for getting started, MotD
 echo 'Setting up message of the day, and some aliases...'
 printf "\nUseful Aliases:\n" >> ~pete/.bashrc
-printf "alias menu='cat /etc/motd'\n" >> ~pete/.bashrc
 printf "alias runserver='python manage.py runserver 0.0.0.0:8000'\n" >> ~pete/.bashrc
 printf "alias ccat='pygmentize -O style=monokai -f terminal -g'\n" >> ~pete/.bashrc
 
