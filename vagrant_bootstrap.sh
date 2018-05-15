@@ -26,6 +26,14 @@ sudo apt-get install -y nodejs
 echo 'Installing memcached...'
 sudo apt-get install memcached libmemcached-dev zlib1g-dev
 
+echo 'Installing Elasticsearch...'
+sudo apt-get install default-jre
+wget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/deb/elasticsearch/2.4.6/elasticsearch-2.4.6.deb
+sudo dpkg -i elasticsearch-2.4.6.deb
+old="#cluster.name: my-application"
+new="cluster.name: my-application"
+sudo systemctl enable elasticsearch.service
+
 echo 'Installing and configuring virtualenv and virtualenvwrapper...'
 pip3 install --quiet virtualenvwrapper Pygments
 pip3 install --upgrade wheel
@@ -38,13 +46,14 @@ printf "export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.6\n" >> ~/.bashrc
 printf "source /usr/local/bin/virtualenvwrapper.sh\n" >> ~/.bashrc
 mkdir ~/projects
 
-echo 'Installing PyCharm'
-sudo snap install pycharm-professional --classic
+#echo 'Installing PyCharm'
+#sudo snap install pycharm-professional --classic
 # Some useful aliases for getting started, MotD
-echo 'Setting up message of the day, and some aliases...'
+echo 'Setting up some aliases...'
 printf "\nUseful Aliases:\n" >> ~pete/.bashrc
 printf "alias runserver='python manage.py runserver 0.0.0.0:8000'\n" >> ~pete/.bashrc
 printf "alias ccat='pygmentize -O style=monokai -f terminal -g'\n" >> ~pete/.bashrc
+
 
 # Set up Postgres last to make sure we set a user password
 echo 'Setting up Postgres...'
@@ -60,3 +69,8 @@ echo 'Postgres set up... use PGPASSWORD=$Password to use it with Heroku'
 sudo apt-get install openssh-server
 sudo ufw allow ssh
 sudo ufw allow 5432
+sudo ufw allow 9200
+
+echo 'All done. You will need to edit /etc/elasticsearch/elasticsearch.yml in accordance to Step 2 of '
+echo 'https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-elasticsearch-on-ubuntu-16-04' 
+echo 'and then start elasticsearch via sudo systemctl restart elasticsearch'
