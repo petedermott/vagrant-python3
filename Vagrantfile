@@ -3,7 +3,7 @@
 
 Vagrant.configure("2") do |django_config|
   # Every Vagrant virtual environment requires a box to build off of.
-  django_config.vm.box = "bento/ubuntu-16.04"
+  django_config.vm.box = "bento/ubuntu-18.04"
 
   # Configure virtual machine specs. Keep it simple, single user.
   django_config.vm.provider :virtualbox do |p|
